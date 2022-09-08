@@ -1,0 +1,33 @@
+﻿// Задайте значения M и N. 
+// Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+Console.WriteLine($"Задайте значения M и N. Программа найдёт сумму натуральных чисел в промежутке от M до N");
+int m = InputNumbers("Введите M: ");
+int n = InputNumbers("Введите N: ");
+int temp = m;
+
+if (m > n) 
+{
+    m = n; 
+    n = temp;
+}
+
+PrintSumm(m, n, temp=0);
+
+void PrintSumm(int m, int n, int summ)
+{
+    summ = summ + n;
+    if (n <= m)
+    {
+        Console.Write($"Сумма натуральных чисел, в промежутке между M и N = {summ} ");
+        return;
+    }
+    PrintSumm(m, n - 1, summ);
+}
+
+int InputNumbers(string input) 
+{
+    Console.Write(input);
+    int output = Convert.ToInt32(Console.ReadLine());
+    return output;
+}
